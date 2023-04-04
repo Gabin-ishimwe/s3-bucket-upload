@@ -1,14 +1,10 @@
 const db   = require('../database/models/');
 const dotenv  = require('dotenv');
-const aws   = require('aws-sdk');
+
 dotenv.config();
 
 const { File } = db;
 
-const s3 = new aws.S3({
-  accessKeyId: process.env.AWS_ACCESS_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-});
 
 class uploadController {
 
@@ -21,7 +17,7 @@ class uploadController {
     try {
 
       //Upload file to S3
-
+      return res.json({file: req.files});
 
       //Insert file name and link in DB
 
